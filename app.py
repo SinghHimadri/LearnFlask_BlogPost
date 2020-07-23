@@ -26,11 +26,12 @@ def posts():
     if request.method == 'POST':
         post_title = request.form['title']
         post_content = request.form['content']
-        new_post = BlogPost(title=post_title, content=post_content,)
+        post_author = request.form['author']
+        new_post = BlogPost(title=post_title, content=post_content, author =post_author)
         db.session.add(new_post)  # to add for this session
         db.session.commit()  # to permanently add in databse
         all_posts = BlogPost.query.order_by(BlogPost.date_posted).all()
-        return redirect('posts.html')
+        return redirect('/posts')
     else:
         all_posts = BlogPost.query.order_by(BlogPost.date_posted).all()
         return render_template('posts.html', posts=all_posts)
