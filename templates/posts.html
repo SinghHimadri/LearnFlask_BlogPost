@@ -4,15 +4,13 @@
 <title>Posts</title>
 {% endblock %}
 
-
-
 {% block body %}
 <h1>All Posts</h1>
 
     <hr>
     <h2>Create New Bog Post:</h2>
     <form action='/posts' method='POST'>
-        Title: <input type='text' id ='title'>
+        Title: <input type='text' name='title' id ='title'>
         <br>
         Post: <input type='text' name='content' id ='content'>
         <br>
